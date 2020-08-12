@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Wktr/emulator/Chip-8-emulator/Content/font12.spritefont","C:/Users/Wktr/emulator/Chip-8-emulator/Content/bin/DesktopGL/Content/font12.xnb","FontDescriptionProcessor","SpriteFontContent",2018,21538,0,3330252
+"C:/Users/Wktr/emulator/Chip-8-emulator/Content/font20.spritefont","C:/Users/Wktr/emulator/Chip-8-emulator/Content/bin/DesktopGL/Content/font20.xnb","FontDescriptionProcessor","SpriteFontContent",2018,70690,0,0813688
+"C:/Users/Wktr/emulator/Chip-8-emulator/Content/font25.spritefont","C:/Users/Wktr/emulator/Chip-8-emulator/Content/bin/DesktopGL/Content/font25.xnb","FontDescriptionProcessor","SpriteFontContent",2018,70690,0,0521846
