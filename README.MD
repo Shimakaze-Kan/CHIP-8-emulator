@@ -65,11 +65,11 @@ Timer speed is the frequency at which the timer value is decremented.
 ## Additional Info
 The program tested on Windows and Linux, but should also work on Mac.
 
-I am also adding 3 game roams from [zophar.net](https://www.zophar.net/pdroms/chip8/chip-8-games-pack.html). There is also a file "tetris.kb", which allows you to control tetris game using arrows on your keyboard.
+I am also adding 3 game roms from [zophar.net](https://www.zophar.net/pdroms/chip8/chip-8-games-pack.html). There is also a file "tetris.kb", which allows you to control tetris game using arrows on your keyboard.
 
 ## Resources
 
-INVIDERS, TETRIS and PONG2 game roms [public domain]
+INVIDERS, TETRIS and BRIX game roms [public domain]\
 https://www.zophar.net/pdroms/chip8/chip-8-games-pack.html
 
 Orbitron font [SIL Open Font License v1.10](https://www.fontsquirrel.com/license/Orbitron)\
