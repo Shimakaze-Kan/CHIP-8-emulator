@@ -24,6 +24,9 @@ dotnet Chip-8-emulator.dll [name-of-rom]
 ```
 Or just drag and drop the game rom at Chip-8-emulator.exe file (windows only).
 
+## Gameplay
+![](images/gameplay.gif)
+
 ## Instruction
 After completing the steps described in the previous section, the application window will be displayed and the game will start immediately.
 
