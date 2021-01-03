@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Wktr/emulator/Chip-8-emulator/Content/font12.spritefont</File>
-    <File>C:/Users/Wktr/emulator/Chip-8-emulator/Content/font20.spritefont</File>
-    <File>C:/Users/Wktr/emulator/Chip-8-emulator/Content/font25.spritefont</File>
+    <File>C:/Users/Wktr/github/CHIP-8-emulator/Src/Content/font12.spritefont</File>
+    <File>C:/Users/Wktr/github/CHIP-8-emulator/Src/Content/font20.spritefont</File>
+    <File>C:/Users/Wktr/github/CHIP-8-emulator/Src/Content/font25.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
