@@ -148,9 +148,7 @@ namespace CHIP_8_Emulator
         {
             ushort opcode = (ushort)(_memory[_PC & 0xFFF] * 0x100 + _memory[(_PC + 1) & 0xFFF]);
             _PC += 2;
-
-            //Console.WriteLine("Opcode: " + opcode.ToString("X4"));
-
+            
             byte u = (byte)((opcode >> 12) & 0xF);
             byte p = (byte)((opcode >> 0) & 0xF);
             byte y = (byte)((opcode >> 4) & 0xF);
@@ -167,8 +165,7 @@ namespace CHIP_8_Emulator
                         _PC = _stack.Pop();
                     else
                     {
-                        Console.WriteLine( new UnsupportedInstructionException(opcode.ToString("X4")).Message); //temporary solution
-                        Environment.Exit(-1);
+                        throw new UnsupportedInstructionException(opcode.ToString("X4"));
                     }
                     break;
                 case 1:
@@ -233,8 +230,7 @@ namespace CHIP_8_Emulator
                             break;
 
                         default:
-                            Console.WriteLine( new UnsupportedInstructionException(opcode.ToString("X4")).Message);
-                            Environment.Exit(-1);
+                            throw new UnsupportedInstructionException(opcode.ToString("X4"));
                             break;
                     }
                     break;
@@ -287,8 +283,7 @@ namespace CHIP_8_Emulator
                     }
                     else
                     {
-                        Console.WriteLine( new UnsupportedInstructionException(opcode.ToString("X4")).Message);
-                        Environment.Exit(-1);
+                        throw new UnsupportedInstructionException(opcode.ToString("X4"));
                     }
                     break;
                 case 0xF:
@@ -329,15 +324,13 @@ namespace CHIP_8_Emulator
                             break;
 
                         default:
-                            Console.WriteLine( new UnsupportedInstructionException(opcode.ToString("X4")).Message);
-                            Environment.Exit(-1);
+                            throw new UnsupportedInstructionException(opcode.ToString("X4"));
                             break;
                     }
                     break;
 
                 default:
-                    Console.WriteLine( new UnsupportedInstructionException(opcode.ToString("X4")).Message);
-                    Environment.Exit(-1);
+                    throw new UnsupportedInstructionException(opcode.ToString("X4"));
                     break;             
             }
         }

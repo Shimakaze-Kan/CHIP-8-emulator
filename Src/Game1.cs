@@ -28,6 +28,7 @@ namespace GameWindow
         private SpriteFont _font25;
         private Task _emulatorTask;
         private CancellationTokenSource _tokenSource2;
+        private static string _threadExceptionMessage;
 
 
         public App(string path)
@@ -73,25 +74,15 @@ namespace GameWindow
             CancellationToken ct = _tokenSource2.Token;
 
             
-            _emulatorTask = Task.Run(() => _motherboard.StartExecuting(ct), ct);
+            _emulatorTask = Task.Factory.StartNew(() => _motherboard.StartExecuting(ct), ct);
 
-            // try
-            // {
-            //     _emulatorTask.Wait();
-            // }
-            // catch(AggregateException ae)
-            // {
-            //     foreach(var ex in ae.InnerExceptions)
-            //     {
-            //         if(ex is UnsupportedInstructionException)
-            //         {
-            //             Console.WriteLine(ex.Message);
-            //             Environment.Exit(-1);
-            //         }
-            //         else
-            //             throw;
-            //     }
-            // }
+            _emulatorTask.ContinueWith(t => HandleException(t.Exception), TaskContinuationOptions.OnlyOnFaulted);
+        }
+
+        protected static void HandleException(AggregateException exception)
+        {
+            foreach (var ex in exception.Flatten().InnerExceptions)
+                _threadExceptionMessage += ex.Message + Environment.NewLine;
         }
 
         protected void PauseEmulatorTask() => _motherboard.pause = true;
@@ -225,6 +216,11 @@ namespace GameWindow
             _spriteBatch.DrawString(_font20, "Cpu Clocking\n" + cpuClockingFormated, new Vector2(10 * Motherboard.ScreenWidth + 20, 50), Color.White);
             _spriteBatch.DrawString(_font20, "Timer Speed\n" + _motherboard.GetTimerSpeed + "Hz", new Vector2(10 * Motherboard.ScreenWidth + 20, 150), Color.White);
             _spriteBatch.DrawString(_font12, "File: " + _path, new Vector2(0, 10 * (Motherboard.ScreenHeight + 1) + 5), Color.White);
+
+            if (_threadExceptionMessage != null)
+            {
+                _spriteBatch.DrawString(_font12, "Fatal error: " + _threadExceptionMessage + "\n\nYou can now safely close this window", new Vector2(0, 0), Color.Red);
+            }
 
             _spriteBatch.End();
 
